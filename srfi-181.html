@@ -180,7 +180,6 @@ Returns a newly created textual input port whose character source is
 an arbitrary algorithm represented by the <i>read!</i> procedure.</p>
 <ul>
 <li><p>(<i>read!</i> <i>string-or-char-vector</i> <i>start</i> <i>count</i>)</p>
-<p>
 <p>It is an error if the following conditions on the arguments are not met:
 <i>start</i> is a non-negative exact integer,
 <i>count</i> is a positive exact integer,
@@ -214,7 +213,6 @@ Returns a newly created binary output port whose byte sink is
 an arbitrary algorithm represented by the <i>write!</i> procedure.</p>
 <ul>
 <li><p>(<i>write!</i> <i>bytevector</i> <i>start</i> <i>count</i>)</p>
-<p>
 <p>It is an error if the following conditions on the arguments are not met:
 <i>start</i> and <i>count</i> are non-negative exact
 integers,
@@ -259,7 +257,6 @@ Returns a newly created textual output port whose character sink is
 an arbitrary algorithm represented by the <i>write!</i> procedure.
 <ul>
 <li><p>(<i>write!</i> <i>string-or-char-vector</i> <i>start</i> <i>count</i>)</p>
-<p>
 <p>It is an error if the following conditions on the arguments are not met:
 <i>start</i> and <i>count</i> are non-negative exact
 integers,
@@ -323,9 +320,7 @@ and encode characters as bytes.
 <p>
 Returns a transcoder with the behavior specified by its arguments.
 </p>
-<p>
-</p>
-<div><code>(native-transcoder<i></i>)</code></div>
+<div><code>(native-transcoder)</code></div>
 <p>
 Returns an implementation-dependent transcoder that represents a
 possibly locale-dependent &ldquo;native&rdquo; transcoding.
@@ -360,8 +355,6 @@ Returns the string that results from decoding the
 Returns the bytevector that results from encoding the
 <i>string</i> according to the output direction of the transcoder.
 </p>
-<p>
-</p>
 <h3>Codecs</h3>
 <p>
 Several different character encoding schemes exist that describe standard ways to
@@ -388,9 +381,9 @@ IANA page on character sets are not recommended.</p>
 on a string that the implementation does not support,
 an error satisfying <code>unknown-encoding-error?</code> is signaled.</p>
 
-<div><code>(latin-1-codec<i></i>)</code></div>
-<div><code>(utf-8-codec<i></i>)</code></div>
-<div><code>(utf-16-codec<i></i>)</code></div>
+<div><code>(latin-1-codec)</code></div>
+<div><code>(utf-8-codec)</code></div>
+<div><code>(utf-16-codec)</code></div>
 <p>
 These are predefined codecs for the ISO 8859-1, UTF-8,
 and UTF-16 encoding schemes.
@@ -405,7 +398,7 @@ procedure.
 <div><code>(unknown-encoding-error?&nbsp;<i>obj</i>)</code></div>
 <p>Returns <code>#t</code> if <i>obj</i> is a condition object
 raised by <code>make-codec</code> or one of a set of implementation-defined
-objects.<p>
+objects.</p>
 <div><code>(unknown-encoding-error-name&nbsp;<i>unknown-encoding-obj</i>)</code></div>
 <p>Extracts the name of the unknown encoding from <i>unknown-encoding-obj</i>
 and returns it as a string.  It is an error to mutate this string.</p>
@@ -418,7 +411,7 @@ In order to conform to this SRFI, implementations must
 support at least three kinds of line endings:
 a <code>#\newline</code> character,
 a <code>#\return</code> character, and
-a <code>#\return</code> followed by a <code><code>#\newline</code></code>,
+a <code>#\return</code> followed by a <code>#\newline</code>,
 which is known as a <i>CRLF sequence</i>.
 Note that these match the line endings recognized by the R7RS
 <code>read-line</code> procedure even when invoked on a non-transcoding port.
@@ -435,7 +428,7 @@ any line ending to be output
 as a <code>#\newline</code> character,
 All other characters remain unchanged.
 Implementations may support additional symbols.</p>
-<div><code>(native-eol-style<i></i>)</code></div>
+<div><code>(native-eol-style)</code></div>
 <p>
 Returns the default end-of-line style of the underlying platform, typically
 <code>lf</code> on Unix and <code>crlf</code> on Windows.
